@@ -32,4 +32,7 @@ public class Recipe {
     @OneToMany(cascade=CascadeType.ALL,mappedBy = "recipe")
     Set<Ingredient> ingredients;
 
+    @Enumerated(value=EnumType.STRING)
+    Difficulty difficulty;
+
 }
