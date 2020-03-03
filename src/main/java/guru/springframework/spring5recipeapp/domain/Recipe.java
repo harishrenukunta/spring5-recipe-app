@@ -35,4 +35,8 @@ public class Recipe {
     @Enumerated(value=EnumType.STRING)
     Difficulty difficulty;
 
+    @ManyToMany
+    @JoinTable(name="recipe_category", joinColumns = {@JoinColumn(name="recipe_id")}, inverseJoinColumns = {@JoinColumn(name="category_id")})
+    Set<Category> categories;
+
 }
