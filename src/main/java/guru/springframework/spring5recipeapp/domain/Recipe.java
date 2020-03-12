@@ -1,11 +1,13 @@
 package guru.springframework.spring5recipeapp.domain;
 
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -24,19 +26,20 @@ public class Recipe {
     String source;
     String url;
     String direction;
+
     @OneToOne(cascade = CascadeType.ALL)
     Notes notes;
+
     @Lob
     Byte[] image;
 
     @OneToMany(cascade=CascadeType.ALL,mappedBy = "recipe")
-    Set<Ingredient> ingredients;
+    Set<Ingredient> ingredients = new HashSet<>();
 
     @Enumerated(value=EnumType.STRING)
     Difficulty difficulty;
 
     @ManyToMany
     @JoinTable(name="recipe_category", joinColumns = {@JoinColumn(name="recipe_id")}, inverseJoinColumns = {@JoinColumn(name="category_id")})
-    Set<Category> categories;
-
+    Set<Category> categories = new HashSet<>();
 }
