@@ -86,7 +86,7 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
         Recipe guacaRecipe = new Recipe();
         guacaRecipe.setCookTime(10);
         guacaRecipe.setDifficulty(Difficulty.EASY);
-        guacaRecipe.setDescription("Its a wonderfule and delicious greeek recipe");
+        guacaRecipe.setDescription("Its a wonderful and delicious greeek recipe");
         guacaRecipe.setDirection("Direction 1");
         guacaRecipe.setServings(4);
         guacaRecipe.setPrepTime(3);
@@ -96,16 +96,15 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
         Notes guacaNotes = new Notes();
         guacaNotes.setRecipeNotes("Guaca notes");
-        guacaNotes.setRecipe(guacaRecipe);
         guacaRecipe.setNotes(guacaNotes);
 
-        guacaRecipe.getIngredients().add(new Ingredient("kosher Salt", new BigDecimal(2), tspUom, guacaRecipe));
-        guacaRecipe.getIngredients().add(new Ingredient("Ripen Avocado", new BigDecimal(2), eachUom, guacaRecipe));
-        guacaRecipe.getIngredients().add(new Ingredient("Lemon", new BigDecimal(1), eachUom, guacaRecipe));
-        guacaRecipe.getIngredients().add(new Ingredient("Red onion or thinly sliced green onion", new BigDecimal(2), tblUom, guacaRecipe));
-        guacaRecipe.getIngredients().add(new Ingredient("Freshly sliced black pepper", new BigDecimal(1), dashUom, guacaRecipe));
-        guacaRecipe.getIngredients().add(new Ingredient("Cilantro", new BigDecimal(2), tblUom, guacaRecipe));
-        guacaRecipe.getIngredients().add(new Ingredient("ripe tomato", new BigDecimal(.5), eachUom, guacaRecipe));
+        guacaRecipe.addIngredient(new Ingredient("kosher Salt", new BigDecimal(2), tspUom))
+                .addIngredient(new Ingredient("Ripen Avocado", new BigDecimal(2), eachUom))
+                .addIngredient(new Ingredient("Lemon", new BigDecimal(1), eachUom))
+                .addIngredient(new Ingredient("Red onion or thinly sliced green onion", new BigDecimal(2), tblUom))
+                .addIngredient(new Ingredient("Freshly sliced black pepper", new BigDecimal(1), dashUom))
+                .addIngredient(new Ingredient("Cilantro", new BigDecimal(2), tblUom))
+                .addIngredient(new Ingredient("ripe tomato", new BigDecimal(.5), eachUom));
         recipes.add(guacaRecipe);
 
         Recipe tacoRecipe = new Recipe();
@@ -117,22 +116,21 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
         tacoRecipe.setDirection("Taco Recipe directions for preparation and cooking");
         Notes tacoNotes = new Notes();
         tacoNotes.setRecipeNotes("We have a motto and that is that everything goes well tortillas");
-        tacoNotes.setRecipe(tacoRecipe);
         tacoRecipe.setNotes(tacoNotes);
 
-        tacoRecipe.getIngredients().add(new Ingredient("Ancho Chilli powder", new BigDecimal(2), tblUom, tacoRecipe));
-        tacoRecipe.getIngredients().add(new Ingredient("Dried Oregano", new BigDecimal(1), tspUom, tacoRecipe));
-        tacoRecipe.getIngredients().add(new Ingredient("Dried Cumin", new BigDecimal(1), tspUom, tacoRecipe));
-        tacoRecipe.getIngredients().add(new Ingredient("Sugar", new BigDecimal(1), tspUom, tacoRecipe));
-        tacoRecipe.getIngredients().add(new Ingredient("Clove or Garlic, Chopped", new BigDecimal(1), eachUom, tacoRecipe));
-        tacoRecipe.getIngredients().add(new Ingredient("Finely grated Orange Zestr", new BigDecimal(1), tblUom, tacoRecipe));
-        tacoRecipe.getIngredients().add(new Ingredient("Freshly Squeezed Orange Juice", new BigDecimal(3), tblUom, tacoRecipe));
-        tacoRecipe.getIngredients().add(new Ingredient("Olive Oil", new BigDecimal(1), tblUom, tacoRecipe));
-        tacoRecipe.getIngredients().add(new Ingredient("Boneless Chicken thigh", new BigDecimal(4), tblUom, tacoRecipe));
-        tacoRecipe.getIngredients().add(new Ingredient("Small Can tortillas", new BigDecimal(8), eachUom, tacoRecipe));
-        tacoRecipe.getIngredients().add(new Ingredient("Packed baby arugula", new BigDecimal(3), cupsUom, tacoRecipe));
-        tacoRecipe.getIngredients().add(new Ingredient("Medium ripe avocado, slic", new BigDecimal(2), eachUom, tacoRecipe));
-        tacoRecipe.getIngredients().add(new Ingredient("Radishes, thinly sliced", new BigDecimal(4), eachUom, tacoRecipe));
+        tacoRecipe.addIngredient(new Ingredient("Ancho Chilli powder", new BigDecimal(2), tblUom))
+                .addIngredient(new Ingredient("Dried Oregano", new BigDecimal(1), tspUom))
+                .addIngredient(new Ingredient("Dried Cumin", new BigDecimal(1), tspUom))
+                .addIngredient(new Ingredient("Sugar", new BigDecimal(1), tspUom))
+                .addIngredient(new Ingredient("Clove or Garlic, Chopped", new BigDecimal(1), eachUom))
+                .addIngredient(new Ingredient("Finely grated Orange Zestr", new BigDecimal(1), tblUom))
+                .addIngredient(new Ingredient("Freshly Squeezed Orange Juice", new BigDecimal(3), tblUom))
+                .addIngredient(new Ingredient("Olive Oil", new BigDecimal(1), tblUom))
+                .addIngredient(new Ingredient("Boneless Chicken thigh", new BigDecimal(4), tblUom))
+                .addIngredient(new Ingredient("Small Can tortillas", new BigDecimal(8), eachUom))
+                .addIngredient(new Ingredient("Packed baby arugula", new BigDecimal(3), cupsUom))
+                .addIngredient(new Ingredient("Medium ripe avocado, slic", new BigDecimal(2), eachUom))
+                .addIngredient(new Ingredient("Radishes, thinly sliced", new BigDecimal(4), eachUom));
         tacoRecipe.getCategories().add(americanCategoryOptional.get());
         tacoRecipe.getCategories().add(mexicanCategoryOptional.get());
 
@@ -144,4 +142,5 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         recipeRepo.saveAll(getRecipes());
     }
+
 }
