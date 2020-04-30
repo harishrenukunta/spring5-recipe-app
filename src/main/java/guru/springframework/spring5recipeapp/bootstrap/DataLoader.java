@@ -85,7 +85,7 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
         Recipe guacaRecipe = new Recipe();
         guacaRecipe.setCookTime(10);
-        guacaRecipe.setDifficulty(Difficulty.EASY);
+        guacaRecipe.setDifficulty(Difficulty.Easy);
         guacaRecipe.setDescription("Its a wonderful and delicious greeek recipe");
         guacaRecipe.setDirection("Direction 1");
         guacaRecipe.setServings(4);
@@ -108,7 +108,7 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
         recipes.add(guacaRecipe);
 
         Recipe tacoRecipe = new Recipe();
-        tacoRecipe.setDifficulty(Difficulty.MEDIUM);
+        tacoRecipe.setDifficulty(Difficulty.Medium);
         tacoRecipe.setDescription("Spicy Grilled Chicken Taco");
         tacoRecipe.setServings(4);
         tacoRecipe.setCookTime(15);

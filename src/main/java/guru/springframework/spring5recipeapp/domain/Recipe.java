@@ -1,9 +1,6 @@
 package guru.springframework.spring5recipeapp.domain;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
@@ -12,8 +9,10 @@ import java.util.Set;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @FieldDefaults(level= AccessLevel.PRIVATE)
 @Entity
+@Builder
 public class Recipe {
 
     @Id

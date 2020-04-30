@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingredients List</title>
+    <link rel="stylesheet"
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" />
+    <script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+</head>
+<body>
+    <div class="container-fluid" style="margin-top:20px">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-9 justify-content-left">
+                                <span class="display-1 panel-title">Ingredients</span>
+                            </div>
+                            <div class="col-md-3">
+                                <a class="btn btn-default" href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/new'}">New</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive" th:if="${not #lists.isEmpty(recipe.ingredients)}"></div>
+                        <table class="table table-striped table-hover">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Description</th>
+                                    <th>View</th>
+                                    <th>Update</th>
+                                    <th>Delete</th>
+                                </tr>
+                                <tr th:each="ingredient : ${recipe.ingredients}">
+                                    <td th:text="${ingredient.id}">1</td>
+                                    <td th:text="${ingredient.description} + ' - ' + ${ingredient.qty} + ' ' + ${ingredient.uom.uom}">Ingredient Description</td>
+                                    <td><a th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id} + '/show'}">View</a></td>
+                                    <td><a th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id} +  '/update'}">Update</a></td>
+                                    <td><a th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id} + '/delete'}">Delete</a></td>
+                                </tr>
+
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

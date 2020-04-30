@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingredients List</title>
+    <link rel="stylesheet"
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" />
+    <script th:src="@{/webjars/jquery/1.11.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+</head>
+<body>
+    <div class="container-fluid" style="margin-top:20px">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <span class="panel-title display-1" th:text="${'Ingredient'}"></span>
+                    </div>
+                    <div class="panel-body">
+                            <div class="table-responsive" th:if="${ingredient != null}">
+                                <table class="table table-striped">
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Description</th>
+                                            <th>Qty</th>
+                                            <th>Uom</th>
+                                        </tr>
+                                    <tr>
+                                        <td th:text="${ingredient.id}">1</td>
+                                        <td th:text="${ingredient.description}">Ingredient Description</td>
+                                        <td th:text="${ingredient.qty}">3</td>
+                                        <td th:text="${ingredient.uom.uom}">Teaspoons</td>
+                                    </tr>
+                                </table>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

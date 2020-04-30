@@ -1,12 +1,14 @@
 package guru.springframework.spring5recipeapp.domain;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(exclude={"recipe"})
 public class Notes {
     @Id
@@ -16,8 +18,6 @@ public class Notes {
     @OneToOne
     Recipe recipe;
     String recipeNotes;
-
-    public Notes(){}
 
     public Notes(final String recipeNotes, final Recipe recipe) {
         this.recipeNotes = recipeNotes;
